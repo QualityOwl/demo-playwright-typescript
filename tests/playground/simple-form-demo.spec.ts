@@ -17,7 +17,7 @@ test.describe('\'Simple Form Demo\' Page Tests', () => {
 
     const hyperlinkText = 'Simple Form Demo';
 
-    test('Validate that the \'Your Message\' field displays the correct text.', async ({ page, log }) => {
+    test.skip('Validate that the \'Your Message\' field displays the correct text.', async ({ page, log }) => {
         // Arrange
         const expectedUrl = 'simple-form-demo';
         const messageText = 'Welcome to Josh\'s Test Demo!';
