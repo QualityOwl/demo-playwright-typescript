@@ -1,3 +1,4 @@
+import { get } from 'http';
 import { test } from '../../common/fixture';
 import { expect } from '@playwright/test';
 
@@ -19,7 +20,7 @@ test.describe('\'Simple Form Demo\' Page Tests', () => {
     test('Validate that the \'Your Message\' field displays the correct text.', async ({ page, log }) => {
         // Arrange
         const expectedUrl = 'simple-form-demo';
-        const messageText = 'Welcome to LambdaTest';
+        const messageText = 'Welcome to Josh\'s Test Demo!';
 
         // Act
         log.step(`Click the \'${hyperlinkText}\' hyperlink.`);
@@ -35,7 +36,7 @@ test.describe('\'Simple Form Demo\' Page Tests', () => {
         log.step(`Enter \'${messageText}\' into the \'Enter Message\' text box.`);
         const enterMessageTextbox = await page.locator('//input[@id=\'user-message\']');
         await enterMessageTextbox.fillSafely(messageText);
-
+        
         log.step(`Click the \'Get Checked Value\' button.`);
         const getCheckValueButton = await page.getByRole('button', { name: 'Get Checked Value' });
         await getCheckValueButton.click();
