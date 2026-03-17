@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "This is the repository that contains my solution for the Playwright 101 exam through LambdaTest.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "check": "npx tsc --noEmit",
+    "tests": "playwright test"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/QualityOwl/playwright-101-assignment-task.git"
@@ -20,6 +23,7 @@
     "@types/node": "^22.14.1"
   },
   "dependencies": {
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "typescript": "^5.9.3"
   }
 }

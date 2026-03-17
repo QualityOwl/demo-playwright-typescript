@@ -13,11 +13,17 @@ test.afterEach(async ({ browser, testBase }) => {
 });
 
 test.describe('\'Checkbox Demo\' Page Tests', () => {
-    test('Validate...', async ({ page, log }) => {
+    test('Validate that single checkbox is checked', async ({ page, log }) => {
         const hyperlinkText = 'Checkbox Demo';
 
         log.step(`Click the \'${hyperlinkText}\' hyperlink.`);
-        const hyperlink = await page.getByRole('link', { name: hyperlinkText });
-        await hyperlink.click();
+        await page.getByRole('link', { name: hyperlinkText }).click();
+
+        log.step(`Check the single checkbox`);        
+        const checkbox = await page.getByRole('checkbox', { name: 'Click on check box' });
+        await checkbox.check();
+
+        log.step(`Validate that the checkbox is checked`);
+        await expect(checkbox).toBeChecked();
     })
 });

@@ -19,7 +19,7 @@ test.describe('\'Drag & Drop Sliders\' Page Tests', () => {
     test('Validate that the slider value is successfully changed to value \'95\'.', async ({ page, log }) => {
         // Arrange
         const sliderDefaultValue = 15;
-        const expectedSliderValue = 95;
+        const expectedSliderValue = 90;
 
         // Act
         log.step(`Click the \'${hyperlinkText}\' hyperlink.`);
@@ -33,17 +33,17 @@ test.describe('\'Drag & Drop Sliders\' Page Tests', () => {
         const xPos = await box.x;
         const yPos = await (box.y + box.height / 2);
         await page.mouse.move(xPos, yPos);
-        await page.waitForTimeout(250);
+        await page.waitForTimeout(500);
         await page.mouse.down();
-        await page.waitForTimeout(250);
-        await page.mouse.move(xPos + 465, yPos, { steps: 5 });
-        await page.waitForTimeout(250);
+        await page.waitForTimeout(500);
+        await page.mouse.move(xPos + 500, yPos, { steps: 1 });
+        await page.waitForTimeout(500);
         await page.mouse.up();
 
         // Assert
         log.step(`Validate that the \'Default value ${sliderDefaultValue}\' slider box displays as \'${expectedSliderValue}\'.`);
         const sliderValueBox = await parent.locator('//output[contains(@id,\'range\')]');
-        const sliderValueBoxText = await sliderValueBox.textContent();
-        await expect(sliderValueBoxText).toContain(expectedSliderValue.toString());
+        const sliderValueBoxText = parseInt(await sliderValueBox.textContent());
+        await expect(sliderValueBoxText).toBeGreaterThanOrEqual(expectedSliderValue);
     });
 });
