@@ -64,8 +64,8 @@ export default defineConfig({
               browserVersion: 'latest',
               'LT:Options': {
                 platform: 'Windows 11',
-                build: 'Playwright 101',
-                name: 'Round #2 Assignment',
+                build: 'Playwright Demo',
+                name: 'Playwright Demo Run',
                 user: process.env.LT_USERNAME,
                 accessKey: process.env.LT_ACCESS_KEY,
                 network: true,
