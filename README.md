@@ -4,7 +4,7 @@ This repository contains my Playwright project written from scratch using TypeSc
 
 ## Test Results
 
-An example test run with results can be viewed here --> [Playwright Test Results](https://github.com/QualityOwl/qowl-demo-playwright/actions/runs/14604127605)
+An example test run with results can be viewed here --> [Playwright Test Results](https://github.com/QualityOwl/demo-playwright-typescript/actions/workflows/playwright.yml)
 
 ## Getting Started
 
@@ -17,17 +17,19 @@ To get started with this solution, you will need the following installed on your
 
 1. Clone this repository to your local machine using the following command:
 
-  - `git clone https://github.com/QualityOwl/qowl-demo-playwright.git`
+  - `git clone https://github.com/QualityOwl/demo-playwright-typescript.git`
 
 2. Open the project folder in Visual Studio Code.
 
-3. Install the 'Playwright Test for VSCode' extension
-   
-4. Install Playwright using the following command:
-   
-  - `npm init playwright@latest`
-   
-5. For more information on installing Playwright, please review the ['Installation'](https://playwright.dev/docs/intro) documentation.
+3. Install the 'Playwright Test for VSCode' extension.
+
+4. Install dependencies:
+
+  - `npm ci`
+
+5. Install Playwright browsers:
+
+  - `npx playwright install --with-deps`
 
 ## Usage
 
@@ -37,7 +39,7 @@ The project contains sample test cases that demonstrate how to use Playwright to
 
 2. In the 'TEST EXPLORER' window, select any test case of your choice and click the 'Run Test' button.
 
-3. The browser will launch and the test case will execute. You should see the browser navigate to the Google homepage, complete the test steps, and validate the results.
+3. The browser will launch and the test case will execute. You should see the browser navigate to the LambdaTest Selenium Playground, complete the test steps, and validate the results.
 
 ## Contributing
 
