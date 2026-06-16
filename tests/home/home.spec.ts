@@ -1,24 +1,30 @@
-import { test } from '@common/fixture';
 import { maps } from '@maps';
-import { expect } from '@playwright/test';
+import { test, expect } from '@playwright/test';
+import { TestBase } from '@common/test-base';
+import { Log } from '@common/log';
 
 const homePage = '/';
 
-test.beforeEach(async ({ page, log }) => {
+let log: Log;
+
+test.beforeEach(async ({ page }, testInfo) => {
+    log = new Log(testInfo.title);
     log.step(`Navigate to \'${homePage}\'.`);
     await page.goto(`${homePage}`);
     await page.waitForLoadState('networkidle');
 });
 
-test.afterEach(async ({ browser, testBase }) => {
+test.afterEach(async ({ browser }, testInfo) => {
+    const testBase = new TestBase(log);
     await testBase.Cleanup(browser);
+    log.postOutput(testInfo.status ?? 'unknown');
 });
 
 test.describe('\'Home\' Page', () => {
 
     test.describe('Format & Layout Tests', () => {
 
-        test('Element layout is arranged correctly', async ({ page, log }) => {
+        test('Element layout is arranged correctly', async ({ page }) => {
 
             log.step('Compare displayed page to the baseline page');
             await expect(page).toHaveScreenshot('homepage-layout.png', {
@@ -31,7 +37,7 @@ test.describe('\'Home\' Page', () => {
 
     test.describe('Shopping Cart Tests', () => {
 
-        test('Shopping cart dollar amount successfully updates', async ({ page, log }) => {
+        test('Shopping cart dollar amount successfully updates', async ({ page }) => {
             const nameProductA = 'Falcon 9';
             const nameProductB = 'Saturn V';
 
@@ -59,7 +65,7 @@ test.describe('\'Home\' Page', () => {
 
         test.describe('Shopping Cart Tests', () => {
 
-        test('Shopping cart item amount successfully updates', async ({ page, log }) => {
+        test('Shopping cart item amount successfully updates', async ({ page }) => {
             const nameProductA = 'Proton Rocket';
             const nameProductB = 'Falcon Heavy';
 
