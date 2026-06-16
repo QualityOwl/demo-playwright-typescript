@@ -1,4 +1,12 @@
 {
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@common/*": ["common/*"],
+            "@maps": ["maps/index"],
+            "@maps/*": ["maps/*"]
+        }
+    },
     "include":[
         "tests/**/*.ts",
         "playwright-extensions.d.ts",
