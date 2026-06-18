@@ -1,5 +1,5 @@
 import { Browser } from '@playwright/test';
-import { Log } from './log';
+import { Log } from '@common/log';
 
 export class TestBase {    
     constructor(private readonly log: Log) {}
