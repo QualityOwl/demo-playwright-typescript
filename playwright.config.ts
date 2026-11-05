@@ -33,7 +33,7 @@ export default defineConfig({
   // Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions.
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
-    baseURL: 'https://www.testmuai.com',
+    baseURL: 'https://demos.bellatrix.solutions',
 
     // Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer
     trace: 'retain-on-failure',
@@ -52,32 +52,6 @@ export default defineConfig({
     {
       name: 'safari',
       use: { ...devices['Desktop Safari'] },
-    },
-    {
-      name: 'Chrome @ LambdaTest',
-      use: {
-        browserName: 'chromium',
-        connectOptions: {
-          wsEndpoint: `wss://cdp.lambdatest.com/playwright?capabilities=${encodeURIComponent(
-            JSON.stringify({
-              browserName: 'Chrome',
-              browserVersion: 'latest',
-              'LT:Options': {
-                platform: 'Windows 11',
-                build: 'Playwright Demo',
-                name: 'Playwright Demo Run',
-                user: process.env.LT_USERNAME,
-                accessKey: process.env.LT_ACCESS_KEY,
-                network: true,
-                video: true,
-                console: true,
-                geoLocation: 'US',
-                timezone: 'Chicago'
-              },
-            })
-          )}`,
-        },
-      },
     }
   ]
 });
